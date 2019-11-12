@@ -1,0 +1,40 @@
+<!doctype html>
+<title>Links</title>
+<style>
+  body { text-align: center; padding: 10px;}
+  h1 { font-size: 50px; }
+  body { font: 20px Helvetica, sans-serif; color: #333; }
+  article { display: block; text-align: left; width: 650px; margin: 0 auto; }
+  a { color: #dc8100; text-decoration: none; }
+  a:hover { color: #333; text-decoration: none; }
+  p {margin: 10px 0 10px 0;}
+  .addurl {
+	padding: 9px;
+	border:1px solid #DDDDDD;
+	margin-bottom: 30px;
+	border-radius: 3px;
+  }
+  input, button{
+    border:1px solid #DDDDDD;
+    height: 20pt;
+	border-radius: 3px;
+  }
+  #url {
+      width: max-content;
+  }
+</style>
+
+<article>
+    <h1>Links</h1>
+    <div class="addurl">
+        <input type="text" placeholder="Url" name="url" id="url" autocomplete="off" autofocus>
+        <input type="password" placeholder="Code" name="code" id="code" autocomplete="off" on>
+        <button type="button" onclick="add()">Add</button>
+        <span id="error" style="color: red;"></span>
+    </div>
+    <div>
+        {{range (reverse .Links)}}
+        <p><a href="{{.}}">{{.}}</a> {{else}} <p>No links.</p> {{end}}
+    </div>
+    <script src="/static/app.js"></script>
+</article>
