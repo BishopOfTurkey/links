@@ -93,7 +93,7 @@ func Server(password string) {
 		}
 	})
 
-	log.Fatalln(http.ListenAndServe(":8001", mux))
+	log.Fatalln(http.ListenAndServe(":8002", mux))
 }
 
 func reverse(strs []string) []string {
