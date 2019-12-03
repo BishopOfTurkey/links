@@ -1,0 +1,14 @@
+[Unit]
+Description=mylinks
+
+[Service]
+Type=simple
+Restart=always
+RestartSec=5s
+
+WorkingDirectory= PATH TO DIR
+ExecStart=PATH TO DIR/main -code your_code 
+
+
+[Install]
+WantedBy=multi-user.target
