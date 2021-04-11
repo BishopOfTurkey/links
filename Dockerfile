@@ -4,7 +4,7 @@ FROM golang:1.14 as builder
 WORKDIR /app
 COPY . .
 
-RUN go build -o main cmd/linkstore.go
+RUN go build -o main cmd/linkstore/main.go
 
 FROM alpine:latest
 
