@@ -3,6 +3,7 @@ package linkstore
 import (
 	"encoding/csv"
 	"encoding/json"
+	"fmt"
 	"html/template"
 	"io"
 	"log"
@@ -19,8 +20,8 @@ type AddLinkJSON struct {
 	Code string
 }
 
-func Server(password string) {
-	file, err := os.OpenFile("links.csv", os.O_RDONLY|os.O_CREATE, 0644)
+func Server(password string, linksFile string) {
+	file, err := os.OpenFile(linksFile, os.O_RDONLY|os.O_CREATE, 0644)
 
 	if err != nil {
 		log.Fatalf("Failed to open file: %v\n", err)
@@ -93,7 +94,13 @@ func Server(password string) {
 		}
 	})
 
-	log.Fatalln(http.ListenAndServe(":8002", mux))
+	addr := ":8080"
+	if port := os.Getenv("PORT"); port != "" {
+		addr = fmt.Sprintf(":%s", port)
+	}
+
+	log.Printf("Listening on: %s", addr)
+	log.Fatalln(http.ListenAndServe(addr, mux))
 }
 
 func reverse(strs []string) []string {

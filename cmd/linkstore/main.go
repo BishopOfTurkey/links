@@ -8,6 +8,7 @@ import (
 
 var (
 	pword *string = flag.String("code", "", "Code used verify identity")
+	file  *string = flag.String("file", "links.csv", "CSV to store links in.")
 )
 
 func main() {
@@ -16,5 +17,5 @@ func main() {
 		flag.Usage()
 		os.Exit(1)
 	}
-	linkstore.Server(*pword)
+	linkstore.Server(*pword, *file)
 }
