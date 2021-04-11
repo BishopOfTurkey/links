@@ -10,5 +10,6 @@ FROM alpine:latest
 
 COPY --from=builder /app/main main
 COPY static static
+COPY index.html index.html
 
 CMD ["./main", "-code", "test"]
