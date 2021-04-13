@@ -1,1 +1,1 @@
-web: bin/cmd/linkstore/main
+web: bin/linkstore
