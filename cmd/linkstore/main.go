@@ -15,12 +15,12 @@ func main() {
 	log.Println("Links server starting up...")
 
 	pword := os.Getenv("ACCESS_CODE")
-	if pword != "" {
+	if pword == "" {
 		log.Fatalln("Must set an ACCESS_CODE")
 	}
 
 	file := os.Getenv("LINKS_FILE")
-	if file != "" {
+	if file == "" {
 		file = "links.csv"
 	}
 
