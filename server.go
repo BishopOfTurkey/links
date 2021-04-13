@@ -24,7 +24,7 @@ func Server(password string, linksFile string) {
 	file, err := os.OpenFile(linksFile, os.O_RDONLY|os.O_CREATE, 0644)
 
 	if err != nil {
-		log.Fatalf("Failed to open file: %v\n", err)
+		log.Fatalf("Failed to open file: %v, %v\n", linksFile, err)
 	}
 
 	r := csv.NewReader(file)

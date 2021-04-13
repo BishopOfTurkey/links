@@ -1,7 +1,6 @@
 package main
 
 import (
-	"flag"
 	"linkstore"
 	"log"
 	"os"
@@ -13,7 +12,7 @@ var (
 )
 
 func main() {
-	flag.Parse()
+	log.Println("Links server starting up...")
 
 	pword := os.Getenv("ACCESS_CODE")
 	if pword != "" {
