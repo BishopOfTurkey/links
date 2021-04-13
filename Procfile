@@ -1,1 +1,1 @@
-web: bin/linkstore
+web: linkstore
