@@ -92,11 +92,17 @@ func Server(password string, linksFile string) {
 		if err != nil {
 			log.Printf("Failed to save csv: %v", err)
 		}
+		err = file.Close()
+		if err != nil {
+			log.Printf("Failed to close csv: %v", err)
+		}
 	})
 
-	addr := ":8080"
+	var addr string
 	if port := os.Getenv("PORT"); port != "" {
 		addr = fmt.Sprintf(":%s", port)
+	} else {
+		log.Fatalln("PORT must be set.")
 	}
 
 	log.Printf("Listening on: %s", addr)
